@@ -20,7 +20,7 @@
                   <li class="list-group-item">
                     <div class="checkbox">
                       <label>
-                        <%= check_box_tag("post[category][]", c.id, false, class: 'post-checkbox') %>
+                        <%= check_box_tag("post[category]", c.name, c.name == params[:name], class: 'post-checkbox') %>
                         <%= c.name %>
                       </label>
                     </div>
@@ -42,7 +42,7 @@
                   <li class="list-group-item">
                     <div class="checkbox">
                       <label>
-                        <%= check_box_tag("post[tag][]", c.id, false , class: 'post-checkbox') %>
+                        <%= check_box_tag("post[tag]", c.name, c.name == params[:tag], class: 'post-checkbox') %>
                         <%= c.name %>
                       </label>
                     </div>
@@ -50,7 +50,6 @@
                 <% end %>
               </ul>
             </div>
-            <%= button_tag 'Filter', class: 'btn btn-md btn-primary hidden', id: "post-search-submit" %>
           <% end %>
 
         </div>

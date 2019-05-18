@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = params[:post].nil? ? Post.all : Post.search(params[:post])
+    @posts = Post.all
   end
 
   # GET /posts/1
@@ -61,6 +61,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def language
+    @tag = params[:tag]
+    @category = params[:name]
+    @posts = Post.search(params[:name] || nil, params[:tag] || nil)
+    render :index
+  end
+
+  def tags
+    @tag = params[:tag]
+    @posts = Post.search(nil, params[:tag] || nil)
+    render :index
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

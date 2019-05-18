@@ -14,7 +14,33 @@
 //= require rails-ujs
 //= require bootstrap
 $(document).ready(function() {
-    $('.post-checkbox').change(function () {
-        $('#post-search-submit').trigger('click');
+    var $category_check_boxes =$("input[name='post[category]']");
+    var $tag_check_boxes =$("input[name='post[tag]']");
+
+    $category_check_boxes.change(function () {
+        $category_check_boxes.prop('checked', false);
+        $(this).prop('checked', true);
+        redirectUrl();
+        // $('#post-search-submit').trigger('click');
+    });
+
+    $tag_check_boxes.change(function () {
+        $tag_check_boxes.prop('checked', false);
+        $(this).prop('checked', true);
+        redirectUrl();
+        // $('#post-search-submit').trigger('click');
     });
 });
+function redirectUrl() {
+    var category = $("input[name='post[category]']:checked").val();
+    var tag = $("input[name='post[tag]']:checked").val();
+    var url = '/posts';
+    if(category)
+        url = url + '/languages/' + category + '/';
+    if(category && tag)
+        url += tag;
+    else if(tag)
+        url += 'tags/' + tag;
+
+    window.location.assign(url);
+}

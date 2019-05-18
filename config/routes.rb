@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    collection do
+      get '/languages/:name', to: 'posts#language'
+      get '/languages/:name/:tag', to: 'posts#language'
+      get '/tags/:tag/', to: 'posts#tags'
+    end
+  end
   resources :tags
   resources :categories
   root 'posts#index'
