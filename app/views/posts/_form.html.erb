@@ -1,0 +1,48 @@
+<%= form_with(model: post, local: true, html: { class: "form-horizontal"}) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag_id %>
+    <%= form.select :tag_id, Tag.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'Select Tag'}, {class: 'form-control'} %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, {include_blank: 'Select Category'}, {class: 'form-control'} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :original %>
+    <%= form.text_area :original, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :translation %>
+    <%= form.text_area :translation, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">REPETO</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse pull-right" id="navbarText">
+    <ul class="navbar-nav animate side-nav">
+      <li class="nav-item">
+        <%= link_to "Posts", posts_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Categories", categories_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Tags", tags_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Tags</h1>
-
-<table>
+<%= link_to 'New Tag', new_tag_path, class: "btn btn-primary btn-md pull-right" %>
+<table class="table table-striped custab">
   <thead>
     <tr>
       <th>Name</th>
@@ -23,5 +23,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Tag', new_tag_path %>
