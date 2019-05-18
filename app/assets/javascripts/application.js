@@ -40,7 +40,7 @@ function redirectUrl() {
     if(category && tag)
         url += tag;
     else if(tag)
-        url += 'tags/' + tag;
+        url += '/tags/' + tag;
 
     window.location.assign(url);
 }
