@@ -16,19 +16,28 @@
 $(document).ready(function() {
     var $category_check_boxes =$("input[name='post[category]']");
     var $tag_check_boxes =$("input[name='post[tag]']");
-
-    $category_check_boxes.change(function () {
-        $category_check_boxes.prop('checked', false);
-        $(this).prop('checked', true);
-        redirectUrl();
-        // $('#post-search-submit').trigger('click');
+    $category_check_boxes.click(function () {
+        if(this.checked){
+            $category_check_boxes.prop('checked', false);
+            $(this).prop('checked', true);
+            redirectUrl();
+        }else{
+            $category_check_boxes.prop('checked', false);
+            $(this).prop('checked', false);
+            redirectUrl();
+        }
     });
 
-    $tag_check_boxes.change(function () {
-        $tag_check_boxes.prop('checked', false);
-        $(this).prop('checked', true);
-        redirectUrl();
-        // $('#post-search-submit').trigger('click');
+    $tag_check_boxes.click(function () {
+        if(this.checked){
+            $tag_check_boxes.prop('checked', false);
+            $(this).prop('checked', true);
+            redirectUrl();
+        }else{
+            $tag_check_boxes.prop('checked', false);
+            $(this).prop('checked', false);
+            redirectUrl();
+        }
     });
 });
 function redirectUrl() {
